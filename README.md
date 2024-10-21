@@ -5,7 +5,7 @@
 versiond de node 20.14.0
 
 
-## La arquitectura para este projecto pequeño, esta basicamente en la Agrupacion de componente y servicios. 
+## La arquitectura para este proyecto pequeño, esta básicamente en la Agrupacion de componente y servicios. 
 ## Una mejor arquitectura para una projecto mas grande que sea escalable y facil de entender seria tenerlas por capas, dominio , casos de uso, interfaces.
 ## Al actualizar la pagina toda la data vuelve a su estado original, llama la api una vez y se guarda en persistencia en el localstorage.
 ## Si se queria la data persistente y no temporal solo se llamaba al servicio de persistence para
