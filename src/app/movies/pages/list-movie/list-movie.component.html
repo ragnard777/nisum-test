@@ -1,0 +1,65 @@
+<h1 class="pt-4">Listado de peliculas</h1>
+<button
+          mat-flat-button
+          color="primary"
+          (click)="openModal()"
+          >
+          agregar nueva peli
+        </button>
+<mat-divider></mat-divider>
+ <div class="grid bm-8 pt-12">
+  <div *ngFor="let movieArray of movies; index:i" class="col-12 sm:col-4 md:col-3 xl:col-2 ">
+    <app-movies-card (itemDeleted)="deleteItem($event)" (itemActualizado)="actualizadoItem($event)" [movie]="movieArray"></app-movies-card>
+  </div>
+  <div class="modal" [ngClass]="{'show': isModalVisible}">
+    <div class="modal-content">
+      <div class="grid grid-nogutter h-full justify-content-center align-items-center">
+        <div class="col-12 sm:col-6">
+          <mat-card>
+            <mat-card-content>
+
+              <form class="grid" [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+
+                <mat-form-field class="col-12 ">
+                  <mat-label>Title</mat-label>
+                  <input
+                  matInput
+                  type="text"
+                  required
+                  formControlName="title"
+                  />
+                </mat-form-field>
+
+                <mat-form-field class="col-12">
+                  <mat-label>status</mat-label>
+                  <mat-select required formControlName="status">
+                    <mat-option value="Released">Released</mat-option>
+                    <mat-option value="NoReleased">NoReleased</mat-option>
+                  </mat-select>
+                </mat-form-field>
+          </form>
+
+          <div class="flex justify-content-between">
+            <button
+          mat-flat-button
+          color="primary"
+          (click)="closeModal()"
+          >
+          <mat-icon>close</mat-icon>
+          cerrar
+        </button>
+          <button
+          mat-flat-button
+          color="primary"
+          (click)="onSubmit()"
+          >
+          <mat-icon>save</mat-icon>
+          Guardar
+        </button>
+      </div>
+
+    </mat-card-content>
+    </mat-card>
+  </div>
+ </div>
+
